@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base-nodejs:0.2.5
+ARG BUILD_FROM=ghcr.io/hassio-addons/base-nodejs:edge
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -20,9 +20,9 @@ RUN \
         build-base=0.5-r3 \
         git=2.43.5-r0 \
         libffi-dev=3.4.4-r3 \
-        openssl-dev=3.1.7-r1 \
+        openssl-dev=3.1.7-r1   \
         patch=2.7.6-r10 \
-        python3-dev=3.11.10-r0 \
+        python3-dev=3.11.10-r0  \
     \
     && apk add --no-cache \
         apache2-utils=2.4.62-r0 \
@@ -33,7 +33,7 @@ RUN \
         nginx=1.24.0-r16 \
         openssl=3.1.7-r1 \
         py3-pip=23.3.1-r0 \
-        python3=3.11.10-r0 \
+        python3=3.11.10-r0  \
     \
     && pip3 install -r /tmp/requirements.txt \
     \
