@@ -17,8 +17,8 @@ ARG NGINX_PROXY_MANAGER_VERSION="v2.10.4"
 # hadolint ignore=DL3003,DL3042
 
 RUN \
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  \
     && apk add --no-cache --virtual .build-dependencies \
+        curl \
         build-base=0.5-r3 \
         git=2.43.5-r0 \
         libffi-dev=3.4.4-r3 \
@@ -26,6 +26,7 @@ RUN \
         patch=2.7.6-r10 \
         python3-dev=3.11.10-r0  \
     \
+    && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  \
     && apk add --no-cache \
         apache2-utils=2.4.62-r0 \
         certbot=2.7.4-r0 \
