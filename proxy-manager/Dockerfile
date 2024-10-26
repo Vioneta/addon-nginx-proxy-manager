@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base-nodejs:0.2.2
+ARG BUILD_FROM=ghcr.io/hassio-addons/base-nodejs:0.2.5
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -18,7 +18,7 @@ ARG NGINX_PROXY_MANAGER_VERSION="v2.10.4"
 RUN \
     apk add --no-cache --virtual .build-dependencies \
         build-base=0.5-r3 \
-        git=2.43.5-r0 \
+        git=2.45.2-r0    \
         libffi-dev=3.4.4-r3 \
         openssl-dev=3.3.2-r1   \
         patch=2.7.6-r10 \
