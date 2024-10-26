@@ -115,7 +115,14 @@ RUN \
 # Copy root filesystem
 COPY rootfs /
 
-
+# Build arguments
+ARG BUILD_ARCH
+ARG BUILD_DATE
+ARG BUILD_DESCRIPTION
+ARG BUILD_NAME
+ARG BUILD_REF
+ARG BUILD_REPOSITORY
+ARG BUILD_VERSION
 # Labels
 LABEL \
     io.hass.name="${BUILD_NAME}" \
