@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base-nodejs:0.1.1
+ARG BUILD_FROM=ghcr.io/hassio-addons/base-nodejs:0.2.2
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -20,22 +20,20 @@ RUN \
         build-base=0.5-r3 \
         git=2.43.5-r0 \
         libffi-dev=3.4.4-r3 \
-        openssl-dev=3.1.4-r3   \
+        openssl-dev=3.1.7-r1 \
         patch=2.7.6-r10 \
-        libssl3=3.1.4-r3 \
-        libcrypto3=3.1.4-r3 \
         python3-dev=3.11.10-r0 \
     \
     && apk add --no-cache \
-        apache2-utils=2.4.58-r1 \
+        apache2-utils=2.4.62-r0 \
         certbot=2.7.4-r0 \
         libcap=2.69-r1 \
         logrotate=3.21.0-r1 \
-        nginx-mod-stream=1.24.0-r14 \
-        nginx=1.24.0-r14 \
-        openssl=3.1.4-r3 \
+        nginx-mod-stream=1.24.0-r16 \
+        nginx=1.24.0-r16 \
+        openssl=3.1.7-r1 \
         py3-pip=23.3.1-r0 \
-        python3=3.11.6-r1 \
+        python3=3.11.10-r0 \
     \
     && pip3 install -r /tmp/requirements.txt \
     \
@@ -125,6 +123,26 @@ ARG BUILD_NAME
 ARG BUILD_REF
 ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
+
+# Labels
+LABEL \
+    io.hass.name="${BUILD_NAME}" \
+    io.hass.description="${BUILD_DESCRIPTION}" \
+    io.hass.arch="${BUILD_ARCH}" \
+    io.hass.type="addon" \
+    io.hass.version=${BUILD_VERSION} \
+    maintainer="Franck Nijhof <frenck@addons.community>" \
+    org.opencontainers.image.title="${BUILD_NAME}" \
+    org.opencontainers.image.description="${BUILD_DESCRIPTION}" \
+    org.opencontainers.image.vendor="Home Assistant Community Add-ons" \
+    org.opencontainers.image.authors="Franck Nijhof <frenck@addons.community>" \
+    org.opencontainers.image.licenses="MIT" \
+    org.opencontainers.image.url="https://addons.community" \
+    org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
+    org.opencontainers.image.documentation="https://github.com/${BUILD_REPOSITORY}/blob/main/README.md" \
+    org.opencontainers.image.created=${BUILD_DATE} \
+    org.opencontainers.image.revision=${BUILD_REF} \
+    org.opencontainers.image.version=${BUILD_VERSION}
 
 # Labels
 LABEL \
