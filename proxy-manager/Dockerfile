@@ -15,9 +15,10 @@ COPY patches/*.patch /usr/src/
 # Setup base
 ARG NGINX_PROXY_MANAGER_VERSION="v2.10.4"
 # hadolint ignore=DL3003,DL3042
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 RUN \
-    apk add --no-cache --virtual .build-dependencies \
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  \
+    && apk add --no-cache --virtual .build-dependencies \
         build-base=0.5-r3 \
         git=2.43.5-r0 \
         libffi-dev=3.4.4-r3 \
