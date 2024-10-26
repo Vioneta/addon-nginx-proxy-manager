@@ -22,7 +22,6 @@ RUN \
         libffi-dev=3.4.4-r3 \
         openssl-dev=3.3.2-r1   \
         patch=2.7.6-r10 \
-        libssl3=3.3.2-r1    \
         python3-dev=3.11.10-r0 \
     \
     && apk add --no-cache \
@@ -32,7 +31,7 @@ RUN \
         logrotate=3.21.0-r1 \
         nginx-mod-stream=1.24.0-r14 \
         nginx=1.24.0-r14 \
-        openssl=3.1.4-r3 \
+        openssl=3.3.2-r1 \
         py3-pip=23.3.1-r0 \
         python3=3.11.6-r1 \
     \
